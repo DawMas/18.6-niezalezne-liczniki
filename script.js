@@ -17,67 +17,47 @@ var Counter = React.createClass({
         })
     },
 
-    ComponentWillMount(){
-    console.log('') },
+    componentWillMount() {
+        console.log('Tutaj możemy wykonac operacje ale nie spowoduje ona re-renderowania')
+        return false;
+    },
 
-    shouldComponentUpdate(){
-        console.log('') },
+    shouldComponentUpdate() {
+        console.log('Tutaj możemy np. zatrzymać wszystkie kolejne metody cyklu życia zwracając false')
+        return this.state = true;
+    },
 
-    componentWillUpdate(){
-        console.log('') },
+    componentWillUpdate() {
+        console.log('działa podobnie jak componentWillMount, nie wolno tutaj modyfikować stanu ')
+    },
 
     render: function () {
-        return React.createElement('div', {className: 'container' },
-            React.createElement('button', {className: 'addCounter', onClick: this.increment }, 'Dodaj do licznika'),
+        return React.createElement('div', { className: 'container' },
+            React.createElement('button', { className: 'addCounter', onClick: this.increment }, 'Dodaj do licznika'),
             React.createElement('button', { className: 'substractCounter', onClick: this.decrement }, 'Odejmij od licznika'),
             React.createElement('span', {}, 'Licznik ' + this.state.counter)
         );
     },
 
-    ComponentDidUpdate(){
-        console.log('') },
+    componentDidUpdate() {
+        console.log('podobnie jak w componentDidMount możemy tutaj aktualizować stan komponentu')
+    },
 
-    ComponentDidMount(){
-        console.log('') },
+    componentDidMount() {
+        console.log('możemy tutaj zaktualizować stan komponentu - jest to najlepsze miejsce.')
+    },
 
-    ComponentWillReceiveProps(){
-        console.log('') },
+    componentWillReceiveProps() {
+        console.log('pierwsza metoda odświeżania komponentu. możemy tutaj np. sprawdzić nowe propsy i ustawić stan komponentu')
+    },
 
-    componentWillUnmount(){
-        console.log('') },
+    componentWillUnmount() {
+        console.log('nie przyjmuje żadnych argumentów, tutaj możemy wyczyścić wcześniej dodane elementy')
+    },
 
-    
 });
 
-var CounterTwo = React.createClass({
-    getInitialState: function () {
-        return {
-            counter: 0
-        };
-    },
-
-    increment: function () {
-        this.setState({
-            counter: this.state.counter + 1
-        })
-    },
-
-    decrement: function () {
-        this.setState({
-            counter: this.state.counter - 1
-        })
-    },
-
-    render: function () {
-        return React.createElement('div', {className: 'container' },
-            React.createElement('button', {className: 'addCounter', onClick: this.increment }, 'Dodaj do licznika drugiego'),
-            React.createElement('button', { className: 'substractCounter', onClick: this.decrement }, 'Odejmij od licznika drugiego'),
-            React.createElement('span', {}, 'Licznik ' + this.state.counter)
-        );
-    }
-});
-
-var element = React.createElement(Counter) ;
-var elementTwo = React.createElement(CounterTwo);
+var element = React.createElement(Counter);
+var elementTwo = React.createElement(Counter);
 ReactDOM.render(element, document.getElementById('app'));
 ReactDOM.render(elementTwo, document.getElementById('app2'));
