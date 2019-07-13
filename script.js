@@ -24,7 +24,7 @@ var Counter = React.createClass({
 
     shouldComponentUpdate() {
         console.log('Tutaj możemy np. zatrzymać wszystkie kolejne metody cyklu życia zwracając false')
-        return this.state = true;
+        return  true;
     },
 
     componentWillUpdate() {
