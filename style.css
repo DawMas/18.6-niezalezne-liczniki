@@ -1,0 +1,17 @@
+button{
+    width: 200px;
+    margin: 0 auto;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(18, 21, 46);
+    border: solid 2px white;
+    border-radius: 15px;
+}
+
+span{
+    width: 200px;
+    font-size: 30px;
+    color: red;
+    text-align: center;
+}
